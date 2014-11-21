@@ -1,0 +1,23 @@
+.alerts {
+  width: 180px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  z-index: 1001;
+}
+.alert {
+  transition: 1s ease all;
+  margin: 5px 0;
+  padding: 10px 35px 10px 10px;
+  span {
+    font-size: $font-size-small;
+    font-weight: 300;
+  }
+  &.ng-enter {
+    opacity: 0;
+  }
+
+  &.ng-leave.ng-leave-active {
+    opacity: 0;
+  }
+}

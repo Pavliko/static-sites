@@ -1,0 +1,13 @@
+{
+  "name": "grunt-static-ruler",
+  "version": "0.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-ng-annotate": "^0.3.0",
+    "grunt-replace": "^0.8.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}

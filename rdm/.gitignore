@@ -1,0 +1,4 @@
+contents/*.html
+partials/*.html
+bower_components
+node_modules

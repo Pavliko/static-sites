@@ -1,0 +1,12 @@
+.alerts{'ng-controller': 'AlertsCtrl'}
+  %alert{'ng-repeat': 'alert in alerts',
+         type: '{{alert.type}}',
+         close: 'closeAlert($index)',
+         class: 'alert'}
+    %span{'ng-bind': 'alert.message'}
+
+%nav.navbar.navbar-default.navbar-static-top.rdm-navigation{role: "navigation"}
+  .container
+    .navbar-header
+      %a.navbar-brand{href: "#"} RedirectMe.ru
+      %p.navbar-text.navbar-left – вся правда о редиректах
