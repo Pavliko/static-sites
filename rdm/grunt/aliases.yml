@@ -1,4 +1,5 @@
 afterHaml:
   - replace
+  - ngtemplates
 afterConcat:
   - ngAnnotate

@@ -1,6 +1,7 @@
 module.exports =
   js:
     exclude: [
-      /jquery/
-      /bower_components\/bootstrap-sass-official/
+      'jquery'
+      'bootstrap-sass-official'
+      'highlight.pack.js'
     ]
