@@ -18,6 +18,12 @@
   Редирект (от английского redirection - перенаправление, так же известен как перенаправление @@URL или форвардинг @@URL) -
   это техника, позволяющая сделать доступной одну страницу по нескольким адресам @@URL.
 
+.redirect-image
+  .http-request
+  %browser.browser--url1{'browser-text': 'URL1'}
+  %browser.browser--url{'browser-text': 'URL'}
+  %browser.browser--url2{'browser-text': 'URL2'}
+
 %h2#how-it-work Как работает редирект?
 %p
   Понять что такое редирект легче всего на примере.

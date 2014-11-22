@@ -7,6 +7,7 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
 
 @import "navigation";
 @import "alerts";
+@import "browser";
 
 .example-button {
   width: 2em;
@@ -19,6 +20,7 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
     border: 2px solid black;
   }
 }
+
 .vertical-center {
   position: absolute;
   top: 50%
