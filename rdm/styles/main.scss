@@ -5,23 +5,9 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
 @import "../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
-@import "navigation";
-@import "alerts";
-@import "browser";
-
-.example-button {
-  width: 2em;
-  height: 2em;
-  border-radius: 1em;
-  border: 2px solid black;
-  padding: 3px;
-  font-weight: 700;
-  &:hover {
-    border: 2px solid black;
-  }
-}
-
-.vertical-center {
-  position: absolute;
-  top: 50%
-}
+@import "components/navigation";
+@import "components/alerts";
+@import "components/browser";
+@import "components/point";
+@import "components/animation";
+@import "layouts/index";

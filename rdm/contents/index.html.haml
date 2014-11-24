@@ -1,7 +1,7 @@
 /###meta###
 %title Как сделать редирект?
-%meta{name: 'description', content: 'RedirectMe.ru - вся правда о редиректах. Если у вас есть какие либо вопросы по редиректам, то здесь вы найдёте ответы на них'}
-%meta{name: 'keywords', content: 'редирект перенаправление форвардинг URL'}
+%meta{ name: 'description', content: 'RedirectMe.ru - вся правда о редиректах. Если у вас есть какие либо вопросы по редиректам, то здесь вы найдёте ответы на них'}
+%meta{ name: 'keywords', content: 'редирект перенаправление форвардинг URL' }
 /###end###
 
 /###content###
@@ -17,12 +17,20 @@
 %p
   Редирект (от английского redirection - перенаправление, так же известен как перенаправление @@URL или форвардинг @@URL) -
   это техника, позволяющая сделать доступной одну страницу по нескольким адресам @@URL.
+  Ниже представлена иллюстрация трёх страниц, на двух из которых настроен редирект на третью.
 
-.redirect-image
-  .http-request
-  %browser.browser--url1{'browser-text': 'URL1'}
-  %browser.browser--url{'browser-text': 'URL'}
-  %browser.browser--url2{'browser-text': 'URL2'}
+.animation-redirect{ animation: true}
+  .user :)
+  %div{ point: true }
+  .request-url1 Запрос на URL1
+  .request-url2 Запрос на URL2
+  .request-url Запрос на URL без редиректа
+  .redirect-url1 Редирект с URL1 на URL
+  .redirect-url2 Редирект с URL2 на URL
+  .response-url Ответ - страница по адресу URL
+  .browser--url1{ browser: 'URL1' }
+  .browser--url{ browser: 'URL' }
+  .browser--url2{ browser: 'URL2' }
 
 %h2#how-it-work Как работает редирект?
 %p
@@ -30,7 +38,7 @@
   В примере мы используем редирект с задержкой для того чтобы работа редиректа была более наглядна,
   в реальной же жизни чаще всего используются редиректы без задержек.
   И так, нажав на красную кнопку
-  %a.btn.btn-danger.example-button{href: '/redirect-example.html'} !
+  %a.btn.btn-danger.example-button{ href: '/redirect-example.html' } !
   вы попадёте на страницу с настроенным редиректом, после чего будете перенаправлены обратно на эту страницу.
 
 /###end###

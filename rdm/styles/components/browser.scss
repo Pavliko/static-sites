@@ -1,14 +1,4 @@
-.redirect-image {
-  padding-left: 16em;
-}
-.browser--url {
-  left: 16em;
-}
-.http-request {
-
-}
 .browser {
-  font-size: 10px;
   position: relative;
   width: 10em;
   height: 8em;
@@ -46,11 +36,11 @@
   left: 0.5em;
   bottom: 0.5em;
   background: #FFF;
-  content: ' ';
   span {
     position: absolute;
     width: 100%;
     top: 50%;
+    left: 0;
     margin-top: -0.5em;
     text-align: center;
     font-size: 1.5em;

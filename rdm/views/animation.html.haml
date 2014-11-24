@@ -1,0 +1,7 @@
+.animation
+  .animation-viewport{ 'ng-transclude': true,
+                       'ng-class': '{"animation--paused": paused}'}
+  .animation-controls{ 'ng-click': 'toggleState($event)' }
+    .animation-controls-play{ 'ng-class': 'paused ? "animation-controls-play--paused" : "animation-controls-play--playing"' }
+      .animation-controls-play-first
+      .animation-controls-play-second

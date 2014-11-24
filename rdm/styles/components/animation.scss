@@ -1,0 +1,105 @@
+.animation {
+  position: relative;
+}
+
+.animation-controls {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: black;
+  width: 30px;
+  height: 30px;
+}
+
+.animation-controls-play {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  height: 20px;
+  width: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  visibility: hidden;
+
+  .animation-controls-play-first {
+    position: absolute;
+    left: -13px;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    transform: rotate(45deg);
+    content: ' ';
+  }
+
+  .animation-controls-play-second {
+    position: absolute;
+    width: 40%;
+    right: 133%;
+    height: 100%;
+    background-color: white;
+    content: ' ';
+  }
+}
+
+.animation--initialized {
+  .animation-controls-play {
+    visibility: visible;
+  }
+}
+
+.animation-controls-play--playing {
+  animation: play-pause 500ms;
+  animation-fill-mode: forwards;
+  .animation-controls-play-first {
+    animation: play-pause-before 500ms;
+    animation-fill-mode: forwards;
+  }
+  .animation-controls-play-second {
+    animation: play-pause-after 500ms;
+    animation-fill-mode: forwards;
+  }
+}
+
+.animation-controls-play--paused {
+  animation: play-pause 500ms reverse;
+  .animation-controls-play-first {
+    animation: play-pause-before 500ms reverse;
+  }
+  .animation-controls-play-second {
+    animation: play-pause-after 500ms reverse;
+  }
+}
+
+.animation-controls-play--paused-remove,
+.animation-controls-play--playing-remove {
+  animation: none;
+  .animation-controls-play-first, .animation-controls-play-second {
+    animation: none;
+  }
+}
+
+.animation-controls-play--playing-remove {
+  left: 5px;
+  .animation-controls-play-first {
+    width: 40%;
+    transform: rotate(0deg);
+    left: 0;
+  }
+  .animation-controls-play-second {
+    right: 0;
+  }
+}
+
+.animation--paused * {
+  animation-play-state: paused !important;
+}
+
+@keyframes play-pause {
+  25%, 100% { left: 5px;  }
+}
+@keyframes play-pause-before {
+  75%, 100% { transform: rotate(0deg); width: 40%; left: 0; }
+}
+@keyframes play-pause-after {
+  75%, 100% { right: 0; }
+}
