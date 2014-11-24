@@ -5,6 +5,7 @@
   top: 5px;
   z-index: 1001;
 }
+
 .alert {
   transition: 1s ease all;
   margin: 5px 0;
@@ -16,7 +17,6 @@
   &.ng-enter {
     opacity: 0;
   }
-
   &.ng-leave.ng-leave-active {
     opacity: 0;
   }

@@ -20,7 +20,6 @@
   margin: 12px 6px;
   border: 1px solid transparent;
   border-radius: $border-radius-base;
-
   &:hover {
     border: 1px solid #ddd;
   }
@@ -84,24 +83,21 @@ legend {
 .pagination {
   font-family: $headings-font-family;
 }
+
 .pagination-lg > li > a,
 .pagination-lg > li > span {
   padding: 14px 24px;
 }
 
 .pager {
-
   font-family: $headings-font-family;
-
   a {
     color: $text-color;
   }
-
   a:hover {
     border-color: transparent;
     color: #fff;
   }
-
   .disabled a {
     border-color: $pager-border;
   }
@@ -113,8 +109,7 @@ legend {
   color: #fff;
   text-decoration: none;
   text-shadow: none;
-  opacity: 0.4;
-
+  opacity: .4;
   &:hover,
   &:focus {
     color: #fff;
@@ -133,6 +128,7 @@ legend {
   font-family: $headings-font-family;
   font-weight: normal;
 }
+
 .label-default {
   border: 1px solid #ddd;
   color: $text-color;
@@ -152,6 +148,7 @@ legend {
 .panel {
   box-shadow: none;
 }
+
 .panel-default {
   .close {
     color: $text-color;
@@ -166,7 +163,6 @@ legend {
   .panel-heading {
     color: #fff;
   }
-
   .panel-body {
     border: 1px solid #ddd;
     border-top-width: 0;

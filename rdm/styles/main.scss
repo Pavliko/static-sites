@@ -1,13 +1,16 @@
-$icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
-@import "variables";
-@import "bootswatch";
+$icon-font-path: '../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/';
+
+@import 'variables';
+@import 'bootswatch';
+
 // bower:scss
-@import "../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import '../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap';
+
 // endbower
 
-@import "components/navigation";
-@import "components/alerts";
-@import "components/browser";
-@import "components/point";
-@import "components/animation";
-@import "layouts/index";
+@import 'components/navigation';
+@import 'components/alerts';
+@import 'components/browser';
+@import 'components/point';
+@import 'components/animation';
+@import 'layouts/index';

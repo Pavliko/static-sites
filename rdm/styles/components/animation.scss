@@ -20,8 +20,6 @@
   top: 5px;
   visibility: hidden;
   width: 20px;
-
-
   .animation-controls-play-first {
     background-color: #fff;
     content: ' ';
@@ -31,7 +29,6 @@
     transform: rotate(45deg);
     width: 100%;
   }
-
   .animation-controls-play-second {
     background-color: #fff;
     content: ' ';
@@ -51,12 +48,10 @@
 .animation-controls-play--playing {
   animation: play-pause 500ms;
   animation-fill-mode: forwards;
-
   .animation-controls-play-first {
     animation: play-pause-before 500ms;
     animation-fill-mode: forwards;
   }
-
   .animation-controls-play-second {
     animation: play-pause-after 500ms;
     animation-fill-mode: forwards;
@@ -65,11 +60,9 @@
 
 .animation-controls-play--paused {
   animation: play-pause 500ms reverse;
-
   .animation-controls-play-first {
     animation: play-pause-before 500ms reverse;
   }
-
   .animation-controls-play-second {
     animation: play-pause-after 500ms reverse;
   }
@@ -78,7 +71,6 @@
 .animation-controls-play--paused-remove,
 .animation-controls-play--playing-remove {
   animation: none;
-
   .animation-controls-play-first,
   .animation-controls-play-second {
     animation: none;
@@ -87,13 +79,11 @@
 
 .animation-controls-play--playing-remove {
   left: 5px;
-
   .animation-controls-play-first {
     left: 0;
     transform: rotate(0deg);
     width: 40%;
   }
-
   .animation-controls-play-second {
     right: 0;
   }
@@ -101,7 +91,6 @@
 
 .animation--paused * {
   animation-play-state: paused !important;
-
 }
 
 @keyframes play-pause {
@@ -111,6 +100,7 @@
   }
 }
 
+
 @keyframes play-pause-before {
   75%,
   100% {
@@ -119,6 +109,7 @@
     width: 40%;
   }
 }
+
 
 @keyframes play-pause-after {
   75%,
