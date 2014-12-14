@@ -13,11 +13,11 @@
 $index-animation-duration: 15000ms;
 
 @function text-highlight-animation($duration, $delay-perc) {
-  @return index-redirecting-text-highlight ease $duration $duration * $delay-perc / 100 infinite;
+  @return index-redirecting-text-highlight ease $duration $duration * $delay-perc / 100 ;
 }
 
 @function index-redirecting-pulse($duration, $delay-perc) {
-  @return index-redirecting-pulse ease $duration $duration * $delay-perc / 100 infinite;
+  @return index-redirecting-pulse ease $duration $duration * $delay-perc / 100 ;
 }
 
 .animation-redirect {
@@ -40,7 +40,7 @@ $index-animation-duration: 15000ms;
   .browser--url {
     left: 35em;
     transform: scale(1);
-    animation: index-redirecting-pulse-browser-url ease $index-animation-duration infinite;
+    animation: index-redirecting-pulse-browser-url ease $index-animation-duration;
   }
   .browser--url1 {
     transform: scale(1);
@@ -54,7 +54,7 @@ $index-animation-duration: 15000ms;
     top: 12em;
     left: 0;
     margin-top: -.5em;
-    animation: index-redirecting-point ease $index-animation-duration infinite;
+    animation: index-redirecting-point ease $index-animation-duration;
   }
   .request-url1,
   .request-url2,
@@ -80,7 +80,7 @@ $index-animation-duration: 15000ms;
   .response-url {
     left: 6em;
     top: 9em;
-    animation: index-redirecting-text-highlight-response ease $index-animation-duration infinite;
+    animation: index-redirecting-text-highlight-response ease $index-animation-duration;
   }
   .request-url {
     left: 6em;

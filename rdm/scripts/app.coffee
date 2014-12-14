@@ -8,10 +8,11 @@
  #
  # Main module of the application.
 ###
-angular.module 'rdmApp', [
+angular.module('rdmApp', [
   'ngAnimate'
   'ngCookies'
   'ngSanitize'
   'ngTouch'
   'ui.bootstrap'
-]
+  'angular-inview'
+]).config ($locationProvider) ->

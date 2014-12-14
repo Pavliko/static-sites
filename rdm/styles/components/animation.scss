@@ -18,7 +18,7 @@
   overflow: hidden;
   position: absolute;
   top: 5px;
-  visibility: hidden;
+  visibility: visible;
   width: 20px;
   .animation-controls-play-first {
     background-color: #fff;
@@ -39,9 +39,9 @@
   }
 }
 
-.animation--initialized {
+.animation--initialization {
   .animation-controls-play {
-    visibility: visible;
+    visibility: hidden;
   }
 }
 
@@ -89,8 +89,13 @@
   }
 }
 
-.animation--paused * {
+.animation--paused *,
+.animation--initialization * {
   animation-play-state: paused !important;
+}
+
+.animation--cleared * {
+  animation: none !important;
 }
 
 @keyframes play-pause {

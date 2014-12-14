@@ -1,7 +1,9 @@
-.animation
+.animation.animation--initialization{'in-view-container': true}
   .animation-viewport{ 'ng-transclude': true,
-                       'ng-class': '{"animation--paused": paused}'}
-  .animation-controls{ 'ng-click': 'toggleState($event)' }
+                       'ng-class': '{"animation--paused": paused, "animation--cleared": cleared}'}
+  .animation-controls{ 'ng-click': 'toggleState($event)',
+                       'in-view': 'init()',
+                       'in-view-options': '{debounce: 10}'}
     .animation-controls-play{ 'ng-class': 'paused ? "animation-controls-play--paused" : "animation-controls-play--playing"' }
       .animation-controls-play-first
       .animation-controls-play-second
