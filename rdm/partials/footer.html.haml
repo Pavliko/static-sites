@@ -1,1 +1,10 @@
-%footer Footer
+%footer.container
+  .pull-right
+    RedirectMe © 2014
+    :javascript
+      (function (){
+        var year = new Date().getFullYear();
+        if(parseInt(year) > 2014){
+          document.write(' - ' + year);
+        }
+      }).call();

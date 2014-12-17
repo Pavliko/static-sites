@@ -1,5 +1,7 @@
 afterHaml:
   - replace
   - ngtemplates
+devServe:
+  - copy:fonts
 afterConcat:
   - ngAnnotate

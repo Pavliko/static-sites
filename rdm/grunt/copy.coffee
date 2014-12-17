@@ -29,3 +29,8 @@ module.exports =
     cwd: '<%= yeoman.app %>/styles'
     dest: '.tmp/styles/'
     src: '{,*/}*.css'
+  fonts:
+    expand: true
+    cwd: 'app/bower_components/bootstrap-sass-official/assets'
+    src: 'fonts/{,*/}*'
+    dest: '.tmp/'
