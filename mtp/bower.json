@@ -1,0 +1,10 @@
+{
+  "name": "simple-webapp",
+  "version": "0.0.0",
+  "appPath": "app",
+  "dependencies": {
+    "es5-shim": "latest",
+    "react": "~0.12.2",
+    "xhr-ajax": "~1.0.0"
+  }
+}
