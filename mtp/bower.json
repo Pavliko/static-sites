@@ -5,6 +5,7 @@
   "dependencies": {
     "es5-shim": "latest",
     "react": "~0.12.2",
-    "xhr-ajax": "~1.0.0"
+    "cookies-js": "~1.1.0",
+    "jStorage": "~0.4.12"
   }
 }
