@@ -1,0 +1,4 @@
+%p.navbar-text.navbar-right.user-info{"ng-if": "authorization.authorized"}
+  Вы авторизованы как {{ authorization.user }}.
+  %u{"ng-click": "authorization.log_out()"}
+    Выход

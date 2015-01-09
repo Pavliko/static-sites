@@ -1,0 +1,36 @@
+.alerts {
+  width: 180px;
+  position: fixed;
+  right: 5px;
+  top: 5px;
+  z-index: 1001;
+
+  .alert {
+    box-shadow: 0 26px 40px -10px rgba(0, 0, 0, 0.45);
+    position: relative;
+    margin: 5px 0;
+    padding: 10px 35px 10px 10px;
+    span {
+      font-size: $font-size-small;
+      font-weight: 300;
+    }
+
+    &.ng-move,
+    &.ng-enter,
+    &.ng-leave {
+      transition: 0.5s ease all;
+    }
+
+    &.ng-leave.ng-leave-active,
+    &.ng-move,
+    &.ng-enter {
+      right: -190px;
+    }
+
+    &.ng-leave,
+    &.ng-move.ng-move-active,
+    &.ng-enter.ng-enter-active {
+      right: 0;
+    }
+  }
+}

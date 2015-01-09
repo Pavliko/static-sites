@@ -1,1 +1,5 @@
 */bower_components
+*/node_modules
+*/contents/*.html
+*/partials/*.html
+*/views/*.html

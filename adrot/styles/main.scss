@@ -1,0 +1,39 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+@import url("//fonts.googleapis.com/css?family=Open+Sans:400,300,700&subset=cyrillic,latin");
+@import 'variables';
+
+// bower:scss
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+@import 'components/loading_bar';
+@import 'components/alerts';
+@import 'components/angular-float-labels';
+@import 'layouts/auth';
+@import 'layouts/user_info';
+
+.navbar-adrot {
+  border-radius: 0;
+  border: none;
+  .navbar-brand {
+    font-weight: 700;
+    color: $navbar-inverse-brand-hover-color;
+  }
+}
+
+span.ad {
+  display: inline-block;
+  color: $brand-danger;
+  transform: rotate(10deg);
+  padding-right: 0,0625em;
+}
+
+h1::first-letter {
+  font-size: 120%;
+  color: $brand-danger;
+}
+
+.content {
+  min-height: 500px;
+  max-width: 1024px;
+}

@@ -1,0 +1,5 @@
+backend/config/deploy_config.rb
+bower_components
+contents/*.html
+partials/*.html
+views/**/*.html

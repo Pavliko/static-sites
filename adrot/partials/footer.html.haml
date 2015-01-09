@@ -1,0 +1,7 @@
+%footer.container <span class="ad">AD</span>ROT.RU © 2014
+.alerts
+  %div{ "ng-repeat": "alert in alerts.alerts",
+        "type": "{{alert.type}}",
+        "class": "alert",
+        "alert": true }
+    %span{"ng-bind": "alert.message"}
