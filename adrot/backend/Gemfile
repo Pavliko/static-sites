@@ -9,3 +9,5 @@ gem 'shotgun',      :require => false
 gem 'unicorn',      :require => false
 gem 'mina',         :require => false
 gem 'mina-unicorn', :require => false
+gem 'nokogiri',     :require => false
+gem 'rest-client',  :require => false

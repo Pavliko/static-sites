@@ -2,13 +2,13 @@
   %h1 Создай рекламную компанию вместе с <span class="ad">AD</span>ROT'ом!
   %form.form-inline.auth-form
     .input-group
-      %input.form-control.input-lg{ "type": "text",
+      %input.form-control.input-lg{ "type": "password",
                                     "placeholder": "Введите свой ключ",
-                                    "ng-model": "key",
+                                    "ng-model": "authKey",
                                     "autofocus": true,
                                     "id": "auth-key",
                                     "label": "Ключ"}
       .input-group-btn
-        %button.btn.btn-success.btn-lg{"ng-click": "authorization.auth(key)"}
+        %button.btn.btn-success.btn-lg{"ng-click": "authorization.auth(authKey)"}
           %i.glyphicon.glyphicon-user
           Вход

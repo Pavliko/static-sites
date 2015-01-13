@@ -2,13 +2,14 @@ require 'rubygems'
 require 'sinatra/base'
 require 'sinatra/jsonp'
 require 'sinatra/json'
+require './lib/parser'
+
 
 class MyApp < Sinatra::Base
   helpers Sinatra::Jsonp
   use Rack::Session::Cookie,
     expire_after: 31104000, # In seconds
     secret: 'adrot_torda'
-
 
   attr_reader :authorized
 
@@ -27,6 +28,10 @@ class MyApp < Sinatra::Base
 
   get '/user_info.json' do
     get_auth
+  end
+
+  post '/parse' do
+    json Parser.new(JSON.parse(request.body.read)).parse
   end
 
   def get_auth

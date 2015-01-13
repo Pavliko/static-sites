@@ -1,32 +1,72 @@
 .float-label-wrapper {
   position: relative;
+  z-index: 1;
+}
+
+.float-label-wrapper--focused {
+  z-index: 2;
 }
 .float-label {
   transition: all .15s ease;
   position: absolute;
-  left: 16px;
-  top: 10px;
+  left: 12px;
+  top: .571428571em;
   color: $input-color-placeholder;
   overflow: hidden;
   white-space: nowrap;
   max-width: 90%;
   z-index: 5;
   font-weight: 400;
-  font-size: $font-size-large;
-}
-.float-label--active {
-  top: 0;
-  left: 7px;
   font-size: $font-size-base;
-  /* text-transform: lowercase; */
+  cursor: text;
+}
+
+.float-label-element + .help-block {
+  transition: color .15s ease;
+  color: $input-border;
+}
+.float-label-element:focus + .help-block {
+  color: $input-color-placeholder;
+}
+
+.float-label--active {
+  top: -0.2em;
+  left: 6px;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  font-size: $font-size-small;
   color: $input-border;
 }
 
 .float-label-element {
-  padding-top: 20px;
-  line-height: .8em;
+  padding-top: .9em;
+
+  &.input-sm {
+    padding-top: 1em;
+  }
+  // line-height: .8em;
 }
 
 .float-label--focused {
   color: $input-border-focus;
+}
+
+.float-label--lg {
+  font-size: $font-size-large;
+  left: 16px;
+  &.float-label--active {
+    font-size: $font-size-base;
+    left: 8px;
+    font-variant: small-caps;
+  }
+}
+
+.float-label--sm {
+  font-size: $font-size-small;
+  left: 10px;
+  &.float-label--active {
+    font-size: $font-size-small;
+    left: 5px;
+    font-variant: small-caps;
+  }
 }

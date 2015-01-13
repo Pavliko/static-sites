@@ -1,5 +1,55 @@
-%section.campaign-create
+%section.campaign{"ng-controller": "CampaignCtrl"}
   %h1 Создать кампанию
+  .container-fluid
+    .row
+      .col-md-8
+        %form
+          .form-group
+            %input.form-control.input-lg{id: "campaign-name",
+              type: "text",
+              placeholder: "Название кампании",
+              "ng-model": "campaign.name"}
+          .form-group
+            %input.form-control{id: "page-url",
+              type: "text",
+              placeholder: "Адрес страницы",
+              "ng-model": "campaign.pageUrl"}
+              %small.help-block Адрес страницы на основании которой будет создана кампания
 
-  %form
-  
+          %tabset
+            %tab.campaign-selectors{heading: "Селекторы контента"}
+              %p.help-block
+                Задав
+                %a{"href": "http://vvz.nw.ru/Lessons/CSS/selectors.htm", "target": "_blank"} CSS селекторы
+                контента вы сможете использовать текст из элементов, на которые эти селекторы указывают,
+                при генерации объявлений.
+              .form-group.campaign-selectors__item{"ng-repeat": "selector in campaign.selectors"}
+                %input.form-control{id: "selector-{{$index}}",
+                  type: "text",
+                  placeholder: "CSS селектор элемента с необходимым текстом",
+                  "data-label": "CSS селектор '{{$index}}'",
+                  "ng-model": "selector.selector",
+                  "ng-focus": "focusSelector($index)",
+                  "ng-blur": "blurSelector($index)"}
+            %tab.advertisements{heading: "Объявления"}
+              %p.help-block
+                Задайте шаблоны одного или нескольких объявлений. В этих шаблонах вы можете использовать
+                значения выбранные с помощью селекторов, заданных ранее.
+              .advertisement{"ng-repeat": "advertisement in campaign.advertisements"}
+                .form-group.advertisement-title-wrapper
+                  %input.form-control.advertisement__title{id: "advertisement-title-{{$index}}",
+                    type: "text",
+                    placeholder: "Заголовок объявления",
+                    "ng-model": "advertisement.title",
+                    "ng-focus": "focusAdvertisement($index)",
+                    "ng-blur": "blurAdvertisement($index)"}
+                .form-group.advertisement__body-wrapper
+                  %textarea.form-control.advertisement__body{id: "advertisement-body-{{$index}}",
+                    type: "text",
+                    placeholder: "Текст объявления",
+                    "ng-model": "advertisement.body",
+                    "ng-focus": "focusAdvertisement($index)",
+                    "ng-blur": "blurAdvertisement($index)"}
+          .form-group
+            %button.btn.btn-success.pull-right{"ng-click": "parseAds()"}
+              Распарсить

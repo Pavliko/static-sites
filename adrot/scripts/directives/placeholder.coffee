@@ -1,13 +1,15 @@
 "use strict"
-angular.module('app').directive "placeholder", ($parse) ->
+angular.module('app').directive "placeholder", ($parse, $timeout) ->
   restrict: "A"
   scope:
     placeholder: '@'
     label: '@'
   link: (scope, element, attrs) ->
     text = scope.placeholder
-    labelText = scope.label
-    label = $("<label class=\"float-label\" for=\"#{attrs.id}\">#{text}</label>")
+    labelText = scope.label || text
+    sizing = " float-label--#{sizing[1]}" if sizing = attrs.class.match(/input-(sm|lg)/)
+
+    label = $("<label class=\"float-label#{sizing || ''}\" for=\"#{attrs.id}\">#{text}</label>")
     parent = element.parent().addClass('float-label-wrapper')
     element.attr 'placeholder', ''
     element.addClass 'float-label-element'
@@ -16,19 +18,29 @@ angular.module('app').directive "placeholder", ($parse) ->
     focus = ->
       label.text text
       label.addClass 'float-label--focused float-label--active'
+      parent.addClass 'float-label-wrapper--focused'
     blur = ->
       if element.val().length
         label.text labelText
       else
         label.removeClass 'float-label--active'
       label.removeClass 'float-label--focused'
+      parent.removeClass 'float-label-wrapper--focused'
 
 
     element
       .on "focus", focus
       .on "blur", blur
-    scope.$on "$destroy", ->
-      label.remove()
-      element
-        .off "focus", focus
-        .off "blur", blur
+
+    # scope.$on "$destroy", ->
+    #   label.remove()
+    #   element
+    #     .off "focus", focus
+    #     .off "blur", blur
+
+
+    $timeout ->
+      if element.val().length
+        label.text labelText
+        label.addClass 'float-label--active'
+    , 50

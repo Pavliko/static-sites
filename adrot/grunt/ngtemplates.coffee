@@ -1,7 +1,7 @@
 module.exports =
   app:
     cwd: '<%= yeoman.app %>'
-    src: 'views/**.html',
+    src: 'views/**/*.html',
     dest: '.tmp/scripts/templates.js'
     options:
       htmlmin:

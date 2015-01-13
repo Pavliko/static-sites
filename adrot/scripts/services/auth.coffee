@@ -9,7 +9,7 @@ angular.module('app')
       else
         '/user_info.json?'
 
-      $http.jsonp("http://localhost:3000#{path}callback=JSON_CALLBACK", ignoreLoadingBar: @authorized == null)
+      $http.jsonp("#{path}callback=JSON_CALLBACK", ignoreLoadingBar: @authorized == null)
         .success (data) =>
           $location.path '/campaigns/create' unless @authorized
           @authorized = true

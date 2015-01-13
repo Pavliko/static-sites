@@ -1,0 +1,66 @@
+.campaign-selectors__item,
+.advertisement {
+  position: relative;
+  overflow: visible;
+  z-index: 2;
+  &:last-child {
+    z-index: 1;
+  }
+}
+
+.campaign-selectors__item.ng-move,
+.campaign-selectors__item.ng-enter,
+.campaign-selectors__item.ng-leave,
+.advertisement.ng-move,
+.advertisement.ng-enter,
+.advertisement.ng-leave {
+  -webkit-transition:all linear 0.25s;
+  transition:all linear 0.25s;
+}
+
+.campaign-selectors__item.ng-leave.ng-leave-active,
+.campaign-selectors__item.ng-move,
+.campaign-selectors__item.ng-enter {
+  top: -49px;
+}
+
+.advertisement.ng-leave.ng-leave-active,
+.advertisement.ng-move,
+.advertisement.ng-enter {
+  top: -92px;
+}
+
+.campaign-selectors__item.ng-leave.ng-leave-active,
+.campaign-selectors__item.ng-move,
+.campaign-selectors__item.ng-enter,
+.advertisement.ng-leave.ng-leave-active,
+.advertisement.ng-move,
+.advertisement.ng-enter {
+  opacity:.5;
+  max-height: 0;
+}
+
+.campaign-selectors__item.ng-leave,
+.campaign-selectors__item.ng-move.ng-move-active,
+.campaign-selectors__item.ng-enter.ng-enter-active,
+.advertisement.ng-leave,
+.advertisement.ng-move.ng-move-active,
+.advertisement.ng-enter.ng-enter-active {
+  opacity:1;
+  top: 0;
+  max-height: inherit;
+}
+
+.advertisement-title-wrapper {
+  margin-bottom: -1px;
+}
+
+.advertisement__title {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.advertisement__body {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
