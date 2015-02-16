@@ -1,0 +1,9 @@
+client_id: e4a93cac38ca482bb89a66f1505b28de
+client_secret: ca0d0c408bb54aef9269fc18a38c6223
+auth_url: https://oauth.yandex.ru/authorize?response_type=code&client_id=%s
+token_url: https://oauth.yandex.ru/token
+token: b0Rrf9VDf0Fic7oh
+login: login
+locale: ru
+verbose: true
+sandbox: true

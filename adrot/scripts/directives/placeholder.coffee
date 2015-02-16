@@ -9,11 +9,12 @@ angular.module('app').directive "placeholder", ($parse, $timeout) ->
     labelText = scope.label || text
     sizing = " float-label--#{sizing[1]}" if sizing = attrs.class.match(/input-(sm|lg)/)
 
-    label = $("<label class=\"float-label#{sizing || ''}\" for=\"#{attrs.id}\">#{text}</label>")
+    label = angular.element("<label class=\"float-label#{sizing || ''}\" for=\"#{attrs.id}\">#{text}</label>")
     parent = element.parent().addClass('float-label-wrapper')
     element.attr 'placeholder', ''
     element.addClass 'float-label-element'
-    element.before label
+    parent.prepend(label)
+
 
     focus = ->
       label.text text

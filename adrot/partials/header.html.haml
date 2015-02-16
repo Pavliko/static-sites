@@ -1,7 +1,7 @@
 %nav.navbar.navbar-adrot.navbar-inverse
   .container-fluid
     .navbar-header
-      %a.navbar-brand{"href": "http://adrot.ru"}
-        <span class="ad">AD</span>ROT.RU
-
-    %user-info
+      %a.navbar-brand{href: "http://adrot.ru"}
+        <span class="ad" ng-class="{'loading': loading > 0}">AD</span>ROT.RU
+    #header-nav
+      %user-nav

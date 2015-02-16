@@ -1,23 +1,47 @@
+GIT
+  remote: git@github.com:Pavliko/pry-remote-auto.git
+  revision: a85248b00a94d430e3f44bfcec37fdccc6c8ef0e
+  specs:
+    pry-remote-auto (1.2.0)
+      pry-remote
+
 GEM
   remote: https://rubygems.org/
   specs:
+    awesome_print (1.6.1)
     backports (3.6.4)
-    kgio (2.9.2)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
+    coderay (1.1.0)
+    debug_inspector (0.0.2)
+    kgio (2.9.3)
+    method_source (0.8.2)
     mime-types (2.4.3)
-    mina (0.3.1)
+    mina (0.3.2)
       open4 (~> 1.3.4)
       rake
-    mina-unicorn (0.0.3)
-    mini_portile (0.6.1)
+    mina-unicorn (0.0.4)
+    mini_portile (0.6.2)
     multi_json (1.10.1)
-    netrc (0.8.0)
-    nokogiri (1.6.4.1)
+    netrc (0.10.2)
+    nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    oj (2.11.4)
     open4 (1.3.4)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-remote (0.1.8)
+      pry (~> 0.9)
+      slop (~> 3.0)
+    pry-stack_explorer (0.4.9.1)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
-    rack-test (0.6.2)
+    rack-test (0.6.3)
       rack (>= 1.0)
     raindrops (0.13.0)
     rake (10.4.2)
@@ -37,27 +61,36 @@ GEM
       rack-test
       sinatra (~> 1.4.0)
       tilt (~> 1.3)
-    sinatra-cross_origin (0.3.2)
-    sinatra-jsonp (0.4.3)
+    sinatra-jsonp (0.4.4)
       multi_json (~> 1.8)
       sinatra (~> 1.0)
+    slop (3.6.0)
     tilt (1.4.1)
     unicorn (4.8.3)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    yandex-api (0.0.5)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
+  binding_of_caller
   mina
   mina-unicorn
   nokogiri
+  oj
+  pry
+  pry-remote
+  pry-remote-auto!
+  pry-stack_explorer
+  rack (= 1.5.2)
   rest-client
   shotgun
   sinatra
   sinatra-contrib
-  sinatra-cross_origin (~> 0.3.1)
   sinatra-jsonp
   unicorn
+  yandex-api

@@ -1,13 +1,23 @@
 # A sample Gemfile
 source 'https://rubygems.org'
 
-
+gem 'rack', '1.5.2'
 gem 'sinatra'
 gem 'sinatra-jsonp'
 gem 'sinatra-contrib'
+gem 'nokogiri'
+gem 'oj'
+gem 'rest-client'
+gem 'yandex-api'
+
+gem 'pry'
+gem 'binding_of_caller'
+gem 'pry-stack_explorer'
+gem 'awesome_print'
+gem 'pry-remote'
+gem 'pry-remote-auto', git: 'git@github.com:Pavliko/pry-remote-auto.git'
+
 gem 'shotgun',      :require => false
 gem 'unicorn',      :require => false
 gem 'mina',         :require => false
 gem 'mina-unicorn', :require => false
-gem 'nokogiri',     :require => false
-gem 'rest-client',  :require => false

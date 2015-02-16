@@ -1,0 +1,23 @@
+#user-nav {
+  a {
+    &.yandex-direct-link {
+      color: $brand-danger;
+
+      &:before {
+        @extend .glyphicon;
+        @extend .glyphicon-remove;
+
+        top: 2px;
+        left: -2px;
+      }
+
+      &.yandex-direct-link--authorized {
+        color: $brand-success;
+        &:before {
+          @extend .glyphicon-ok;
+        }
+      }
+    }
+    cursor: pointer;
+  }
+}

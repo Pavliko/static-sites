@@ -1,7 +1,9 @@
 'use strict'
 
 angular.module('app')
-  .directive 'userInfo', ->
+  .directive 'userNav', ->
     restrict: 'E'
-    templateUrl: 'views/user_info.html'
+    templateUrl: 'views/user_nav.html'
     replace: true
+    link: (scope, element, attrs) ->
+      

@@ -10,8 +10,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import 'components/alerts';
 @import 'components/angular-float-labels';
 @import 'layouts/auth';
-@import 'layouts/user_info';
 @import 'layouts/campaign';
+@import 'layouts/user_nav';
 
 .navbar-adrot {
   border-radius: 0;
@@ -27,6 +27,15 @@ span.ad {
   color: $brand-danger;
   transform: rotate(10deg);
   padding-right: 0,0625em;
+  transition: transform .5s;
+  &.loading {
+    animation: adRotate 1s;
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes adRotate {
+    100% {transform: rotate(370deg);}
 }
 
 h1::first-letter {
@@ -49,6 +58,11 @@ h1::first-letter {
   transition: height .25s ease;
   margin-bottom: 1em;
 }
+
+.modal-content {
+  border: none;
+}
+
 footer {
   margin-top: 2em;
 }

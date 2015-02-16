@@ -16,7 +16,6 @@ class Parser
   end
 
   def element_text selector, page
-    p selector
     set = page.css(selector)
     set.first.text.strip unless set.empty?
   end

@@ -1,0 +1,5 @@
+%a.yandex-direct-link{ target: 'direct_oauth',
+  'ng-class': '{"yandex-direct-link--authorized": yandexDirectAuth}',
+  'ng-href': '{{ yandexDirectAuth ? \'\' : \'https://oauth.yandex.ru/authorize?response_type=code&client_id=e4a93cac38ca482bb89a66f1505b28de\'}}',
+  'ng-click': 'checkCokie(true)' }
+  Яндекс.Директ

@@ -1,5 +1,5 @@
 %section.auth-container{"ng-if": "authorization.authorized == false"}
-  %h1 Создай рекламную компанию вместе с <span class="ad">AD</span>ROT'ом!
+  %h1 Создай рекламную компанию вместе с <span class="ad" ng-class="{'loading': loading > 0}">AD</span>ROT'ом!
   %form.form-inline.auth-form
     .input-group
       %input.form-control.input-lg{ "type": "password",

@@ -1,0 +1,11 @@
+module Sinatra
+  module Auth
+    module Helpers
+
+    end
+
+    def self.registered(app)
+      app.helpers Auth::Helpers
+    end
+  end
+end

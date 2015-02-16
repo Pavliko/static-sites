@@ -3,4 +3,4 @@ module.exports =
     files: ['<%= yeoman.app %>/views/*.haml']
     tasks: ['haml', 'ngtemplates']
     options:
-      livereload: true
+      livereload: 35735
