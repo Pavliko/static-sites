@@ -21,14 +21,6 @@
   cursor: text;
 }
 
-.float-label-element + .help-block {
-  transition: color .15s ease;
-  color: $input-border;
-}
-.float-label-element:focus + .help-block {
-  color: $input-color-placeholder;
-}
-
 .float-label--active {
   top: -0.2em;
   left: 6px;

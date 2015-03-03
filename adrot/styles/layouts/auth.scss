@@ -1,11 +1,11 @@
 .auth-container {
   text-align: center;
   h1 {
-    margin: 100px auto 0;
+    margin: 0 auto;
   }
 }
 .auth-form {
-  margin: 100px auto 0;
+  margin: 0 auto 0;
   input.form-control.input-lg {
     border-top-left-radius: $border-radius-large !important;
     border-bottom-left-radius: $border-radius-large !important;
@@ -14,4 +14,7 @@
   button {
     padding: 11px 16px 10px 16px;
   }
+}
+.adrot-animation {
+  
 }

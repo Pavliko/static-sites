@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler'
 Bundler.require
+require 'yaml'
 
 require './lib/extensions/parser'
 require './lib/extensions/auth'

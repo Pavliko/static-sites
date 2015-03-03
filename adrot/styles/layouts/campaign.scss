@@ -1,5 +1,6 @@
 .campaign-selectors__item,
-.advertisement {
+.advertisement
+.banner {
   position: relative;
   overflow: visible;
   z-index: 2;
@@ -8,14 +9,49 @@
   }
 }
 
-.campaign-selectors__item.ng-move,
-.campaign-selectors__item.ng-enter,
-.campaign-selectors__item.ng-leave,
-.advertisement.ng-move,
-.advertisement.ng-enter,
-.advertisement.ng-leave {
+.campaign-id-wrapper {
+  label {
+    font-weight: normal;
+  }
+
+  select {
+    display: block;
+  }
+}
+
+.campaign {
+  h1 {
+    small {
+      font-size: 14px;
+      cursor: pointer;
+    }
+  }
+}
+
+.animated-division {
+
+}
+
+.animated-division.ng-move,
+.animated-division.ng-enter,
+.animated-division.ng-leave {
   -webkit-transition:all linear 0.25s;
   transition:all linear 0.25s;
+}
+
+.animated-division.ng-leave.ng-leave-active,
+.animated-division.ng-move,
+.animated-division.ng-enter {
+  opacity:.5;
+  max-height: 0;
+}
+
+.animated-division.ng-leave,
+.animated-division.ng-move.ng-move-active,
+.animated-division.ng-enter.ng-enter-active {
+  opacity:1;
+  top: 0;
+  max-height: inherit;
 }
 
 .campaign-selectors__item.ng-leave.ng-leave-active,
@@ -26,41 +62,34 @@
 
 .advertisement.ng-leave.ng-leave-active,
 .advertisement.ng-move,
-.advertisement.ng-enter {
+.advertisement.ng-enter,
+.banner.ng-leave.ng-leave-active,
+.banner.ng-move,
+.banner.ng-enter {
   top: -92px;
 }
 
-.campaign-selectors__item.ng-leave.ng-leave-active,
-.campaign-selectors__item.ng-move,
-.campaign-selectors__item.ng-enter,
-.advertisement.ng-leave.ng-leave-active,
-.advertisement.ng-move,
-.advertisement.ng-enter {
-  opacity:.5;
-  max-height: 0;
-}
+.sticky-form {
+  .form-group {
+    margin-bottom: -1px;
+    input, textarea {
+      border-radius: 0;
+    }
 
-.campaign-selectors__item.ng-leave,
-.campaign-selectors__item.ng-move.ng-move-active,
-.campaign-selectors__item.ng-enter.ng-enter-active,
-.advertisement.ng-leave,
-.advertisement.ng-move.ng-move-active,
-.advertisement.ng-enter.ng-enter-active {
-  opacity:1;
-  top: 0;
-  max-height: inherit;
-}
+    &:first-child {
+      input, textarea {
+        border-top-right-radius: $border-radius-base;
+        border-top-left-radius: $border-radius-base;
+      }
+    }
 
-.advertisement-title-wrapper {
-  margin-bottom: -1px;
-}
+    &:last-child {
+      margin-bottom: 15px;
 
-.advertisement__title {
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.advertisement__body {
-  border-top-right-radius: 0;
-  border-top-left-radius: 0;
+      input, textarea {
+        border-bottom-right-radius: $border-radius-base;
+        border-bottom-left-radius: $border-radius-base;
+      }
+    }
+  }
 }

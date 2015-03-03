@@ -1,12 +1,15 @@
 module Extensions
   module Auth
     AUTHORIZED_KEYS = {
-      'JE7bqwtk7XwxDdpTnL' => 'Горлов Павел'
+      'JE7bqwtk7XwxDdpTnL' => {
+        name: 'Горлов Павел',
+        yandex_logins: ['pavel0788']
+      }
     }
 
     module Helpers
       def get_auth
-        jsonp({success: true, data: session[:authorized], message: "Добро пожаловать #{session[:authorized]}!", type: :success})
+        jsonp({success: true, data: session[:authorized], message: "Добро пожаловать #{session[:authorized][:name]}!", type: :success})
       end
 
       def authorize!

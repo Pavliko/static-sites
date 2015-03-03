@@ -1,20 +1,19 @@
 %section.campaign{"ng-controller": "CampaignCtrl"}
-  %h1 Создать кампанию
+  %h1
+    Добавить объявления
+    %small
+      %a{'ng-click': 'setTestData()'} Заполнить тестовыми данными
   .container-fluid
     .row
       .col-md-8
         %form
           .form-group
-            %input.form-control.input-lg{id: "campaign-name",
+            %input.form-control{ id: "page-url",
               type: "text",
-              placeholder: "Название кампании",
-              "ng-model": "campaign.name"}
-          .form-group
-            %input.form-control{id: "page-url",
-              type: "text",
+              name: "page-url",
               placeholder: "Адрес страницы",
-              "ng-model": "campaign.pageUrl"}
-              %small.help-block Адрес страницы на основании которой будет создана кампания
+              "ng-model": "campaign.pageUrl" }
+            %small.help-block Адрес страницы на основании которой будет создана кампания
 
           %tabset
             %tab.campaign-selectors{heading: "Селекторы контента"}
@@ -23,11 +22,12 @@
                 %a{"href": "http://vvz.nw.ru/Lessons/CSS/selectors.htm", "target": "_blank"} CSS селекторы
                 контента вы сможете использовать текст из элементов, на которые эти селекторы указывают,
                 при генерации объявлений.
-              .form-group.campaign-selectors__item{"ng-repeat": "selector in campaign.selectors"}
-                %input.form-control{id: "selector-{{$index}}",
+              .form-group.campaign-selectors__item.animated-division{"ng-repeat": "selector in campaign.selectors"}
+                %input.form-control{id: "selector-{{::$index}}",
                   type: "text",
+                  name: "selector[]",
                   placeholder: "CSS селектор элемента с необходимым текстом",
-                  "data-label": "CSS селектор '{{$index}}'",
+                  "data-label": "CSS селектор '{{::$index}}'",
                   "ng-model": "selector.selector",
                   "ng-focus": "focusSelector($index)",
                   "ng-blur": "blurSelector($index)"}
@@ -35,21 +35,108 @@
               %p.help-block
                 Задайте шаблоны одного или нескольких объявлений. В этих шаблонах вы можете использовать
                 значения выбранные с помощью селекторов, заданных ранее.
-              .advertisement{"ng-repeat": "advertisement in campaign.advertisements"}
+              .advertisement.sticky-form{"ng-repeat": "advertisement in campaign.advertisements"}
                 .form-group.advertisement-title-wrapper
-                  %input.form-control.advertisement__title{id: "advertisement-title-{{$index}}",
+                  %input.form-control.advertisement__title{id: "advertisement-title-{{::$index}}",
                     type: "text",
                     placeholder: "Заголовок объявления",
+                    name: "advertisement-title[]",
                     "ng-model": "advertisement.title",
                     "ng-focus": "focusAdvertisement($index)",
                     "ng-blur": "blurAdvertisement($index)"}
                 .form-group.advertisement__body-wrapper
-                  %textarea.form-control.advertisement__body{id: "advertisement-body-{{$index}}",
+                  %textarea.form-control.advertisement__body{id: "advertisement-body-{{::$index}}",
                     type: "text",
                     placeholder: "Текст объявления",
+                    name: "advertisement-body[]",
                     "ng-model": "advertisement.body",
+                    "ng-focus": "focusAdvertisement($index)",
+                    "ng-blur": "blurAdvertisement($index)"}
+                .form-group.advertisement__pharses-wrapper
+                  %input.form-control.advertisement__pharses{id: "advertisement-pharses-{{::$index}}",
+                    type: "text",
+                    placeholder: "Ключевые фразы, через ;",
+                    name: "advertisement-pharses[]",
+                    "ng-model": "advertisement.pharses",
+                    "ng-focus": "focusAdvertisement($index)",
+                    "ng-blur": "blurAdvertisement($index)"}
+                .form-group.advertisement__utm-term
+                  %input.form-control.advertisement__pharses{id: "advertisement-utm-term-{{::$index}}",
+                    type: "text",
+                    placeholder: "Метка объявления utm_term",
+                    name: "advertisement-utm-term[]",
+                    "ng-model": "advertisement.utmTerm",
                     "ng-focus": "focusAdvertisement($index)",
                     "ng-blur": "blurAdvertisement($index)"}
           .form-group
             %button.btn.btn-success.pull-right{"ng-click": "parseAds()"}
               Распарсить
+
+      .col-md-4.banners
+        %h3 Объявления
+        %p.help-block
+          Заголовк до 33 символов.
+          %br
+          Текст до 75 символов.
+        %form
+          .form-group.campaign-id-wrapper
+            %label{ for: 'campaign-id' } Kампания
+            %select.form-control{ id: 'campaign-id', 'ng-model': 'campaignId', 'ng-init': 'directAPI.getCampaigns()', 'ng-disabled': 'directAPI.campaigns.length == 0' }
+              %option{ value: null } Выберите кампанию
+              %option{ 'ng-repeat': 'item in directAPI.campaigns', value: '{{::item.CampaignID}}', 'ng-bind': '::item.Name' }
+            %small.help-block Выберите кампанию в которую будут добавлены новые объявления
+          .form-group.banner__pharses-wrapper
+            %input.form-control.banners__pharse-price{id: "banners-pharse-price",
+              type: "text",
+              name: "pharse-price",
+              placeholder: "Ставка на поиске Яндекса, у. е.",
+              "ng-model": "pharsePrice"}
+          .form-group.banner__utm-source-wrapper
+            %input.form-control.banners__utm-source{id: "banners-utm-source",
+              type: "text",
+              name: "utm-source",
+              placeholder: "Метка источника utm_source",
+              "ng-model": "utmSource"}
+          .form-group.banner__utm-medium-wrapper
+            %input.form-control.banners__utm-source{id: "banners-utm-medium",
+              type: "text",
+              name: "utm-medium",
+              placeholder: "Метка канала канала utm_medium",
+              "ng-model": "utmMedium"}
+          .banner.sticky-form.animated-form{"ng-repeat": "banner in banners"}
+            .form-group.banner-title-wrapper
+              %input.form-control.banner__title{id: "banner-title-{{::$index}}",
+                type: "text",
+                name: "banner-title[]",
+                placeholder: "Заголовок объявления",
+                "max-length": 33,
+                "ng-model": "banner.title",
+                "ng-focus": "focusBanner($index)",
+                "ng-blur": "blurBanner($index)"}
+            .form-group.banner__body-wrapper
+              %textarea.form-control.banner__body{id: "banner-body-{{::$index}}",
+                type: "text",
+                name: "banner-body[]",
+                placeholder: "Текст объявления",
+                "max-length": 75,
+                "ng-model": "banner.body",
+                "ng-focus": "focusBanner($index)",
+                "ng-blur": "blurBanner($index)"}
+            .form-group.banner__pharses-wrapper
+              %input.form-control.banner__pharses{id: "banner-pharses-{{::$index}}",
+                type: "text",
+                name: "banner-pharses[]",
+                placeholder: "Ключевые фразы, через ;",
+                "ng-model": "banner.pharses",
+                "ng-focus": "focusBanner($index)",
+                "ng-blur": "blurBanner($index)"}
+            .form-group.banner__utm-term
+              %input.form-control.banner__pharses{id: "banner-utm-term-{{::$index}}",
+                type: "text",
+                name: "banner-utm-term[]",
+                placeholder: "Метка объявления utm_term",
+                "ng-model": "banner.utmTerm",
+                "ng-focus": "focusBanner($index)",
+                "ng-blur": "blurBanner($index)"}
+          %button.btn.btn-success.pull-right{"ng-click": "saveBanners()", 'ng-disabled': '!campaignId'}
+            Загрузить в Direct

@@ -7,6 +7,6 @@ angular.module('app')
     $scope.loading = 0
     Auth.auth()
 
-    $scope.$on 'cfpLoadingBar:started', -> $scope.loading++
+    $scope.$on 'cfpLoadingBar:loading', -> $scope.loading++
 
-    $scope.$on 'cfpLoadingBar:completed', -> $scope.loading--
+    $scope.$on 'cfpLoadingBar:loaded', -> $scope.loading--

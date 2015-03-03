@@ -1,38 +1,70 @@
 'use strict'
 
 angular.module('app')
-  .controller 'CampaignCtrl', ($scope, $http, Auth, Alerts) ->
-    angular.extend $scope,
+  .controller 'CampaignCtrl', ($scope, $http, DirectAPI, $timeout) ->
+    TEST_DATA =
+      utmSource: 'ADrot'
+      utmMedium: 'cpc'
+      pharsePrice: 0.1
       campaign:
-        name: 'Кампания №1'
-        pageUrl: 'http://www.ulmart.ru/goods/958234'
+        pageUrl: 'http://www.ulmart.ru/goods/604875'
         selectors: [
           {selector: 'title'}
           {selector: 'h1'}
           {selector: '.b-product-card__price [itemprop="price"]'}
-          {selector: ''}
+          {selector: '.b-crumbs [itemprop=url] [itemprop=title]'}
+          {selector: '.b-art__num'}
+          {}
         ]
         advertisements: [
             title: 'Купи %{h1} сегодня!'
             body: 'Купи %{h1} всего за  %{2}'
-          ,
-            title: ''
-            body: ''
+            pharses: '%{3}'
+            utmTerm: '%{.b-art__num}'
+          {}
         ]
-      focusSelector: (index) ->
-        @campaign.selectors.push selector: '' if @campaign.selectors.length == index + 1
-      blurSelector: ->
-        if _.isEmpty(@campaign.selectors[@campaign.selectors.length - 2].selector)
-          @campaign.selectors.splice(@campaign.selectors.length - 1, 1)
-          @blurSelector()
-      focusAdvertisement: (index) ->
-        @campaign.advertisements.push {title: '', body: ''} if @campaign.advertisements.length == index + 1
-      blurAdvertisement: ->
-        pp_ad = @campaign.advertisements[@campaign.advertisements.length - 2]
-        if _.isEmpty(pp_ad.title) && _.isEmpty(pp_ad.body)
-          @campaign.advertisements.splice(@campaign.advertisements.length - 1, 1)
-          @blurAdvertisement()
+
+    angular.extend $scope,
+      directAPI: DirectAPI
+      banners: [{}]
+      campaign:
+        pageUrl: null
+        selectors: [{}]
+        advertisements: [{}]
+
+      setTestData: ->
+        angular.extend this, TEST_DATA
+        $timeout (-> $scope.$broadcast 'placeholderTouch'), 50
+
+      focusCollection: (collection, index, newValue={}) ->
+        collection.push newValue if collection.length == index + 1
+
+      blurCollection: (collection) ->
+        return unless collection.length > 1
+        lastElement = collection[collection.length - 2]
+        if _.every(_.keys(lastElement), ((key) -> key == '$$hashKey' || _.isEmpty(lastElement[key])))
+          collection.splice(collection.length - 1, 1)
+          @blurCollection(collection)
+
+      focusSelector: (index) -> @focusCollection @campaign.selectors, index
+      blurSelector: -> @blurCollection @campaign.selectors
+
+      focusAdvertisement: (index) -> @focusCollection @campaign.advertisements, index
+      blurAdvertisement: -> @blurCollection @campaign.advertisements
+
+      focusBanner: (index) -> @focusCollection @banners, index
+      blurBanner: -> @blurCollection @banners
+
       parseAds: ->
         $http.post '/parse', {camaign: @campaign}, {headers: { 'Content-Type': 'application/json'}}
-          .success (data) ->
-            console.log data
+          .success (data) =>
+            @banners.unshift(banner) for banner in data
+
+      saveBanners: ->
+        DirectAPI.saveBanners
+          campaignId: @campaignId
+          utmSource: @utmSource
+          utmMedium: @utmMedium
+          pharsePrice: @pharsePrice
+          href: @campaign.pageUrl
+          banners: _.slice(@banners, 0, -1)

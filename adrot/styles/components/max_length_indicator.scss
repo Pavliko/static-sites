@@ -1,0 +1,25 @@
+.max-length-indicator-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.max-length-indicator {
+  position: absolute;
+  right: 5px;
+  top: 0;
+  color: $input-color-placeholder;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 90%;
+  z-index: 5;
+  font-weight: 400;
+  font-size: $font-size-small;
+  cursor: text;
+  transition: color .2s;
+}
+.max-length-indicator--valid {
+  color: $brand-success;
+}
+.max-length-indicator--invalid {
+  color: $brand-danger;
+}

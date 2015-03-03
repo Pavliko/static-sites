@@ -70,7 +70,6 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    yandex-api (0.0.5)
 
 PLATFORMS
   ruby
@@ -93,4 +92,3 @@ DEPENDENCIES
   sinatra-contrib
   sinatra-jsonp
   unicorn
-  yandex-api

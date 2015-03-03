@@ -9,9 +9,11 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import 'components/loading_bar';
 @import 'components/alerts';
 @import 'components/angular-float-labels';
+@import 'components/max_length_indicator';
 @import 'layouts/auth';
 @import 'layouts/campaign';
 @import 'layouts/user_nav';
+
 
 .navbar-adrot {
   border-radius: 0;
@@ -45,7 +47,7 @@ h1::first-letter {
 
 .content {
   min-height: 500px;
-  max-width: 1024px;
+  padding: 0 15px;
 }
 
 .tab-content {
@@ -61,6 +63,19 @@ h1::first-letter {
 
 .modal-content {
   border: none;
+}
+
+input + .help-block,
+select + .help-block,
+textarea + .help-block {
+  transition: color .15s ease;
+  color: $input-border;
+}
+
+input:focus + .help-block,
+select:focus + .help-block,
+textarea:focus + .help-block{
+  color: $input-color-placeholder;
 }
 
 footer {

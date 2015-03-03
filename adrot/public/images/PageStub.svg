@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="498px" height="373px" viewBox="0 0 498 373" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="TopPage" sketch:type="MSLayerGroup">
+            <rect id="PageBackground" stroke="#979797" fill="#FFFFFF" sketch:type="MSShapeGroup" x="0" y="0" width="496" height="371"></rect>
+            <rect id="Heading" fill="#333333" sketch:type="MSShapeGroup" x="44" y="36" width="350" height="25"></rect>
+            <rect id="Text" fill="#D8D8D8" sketch:type="MSShapeGroup" x="44" y="77" width="398" height="5"></rect>
+            <rect id="Text" fill="#D8D8D8" sketch:type="MSShapeGroup" x="44" y="98" width="368" height="5"></rect>
+            <rect id="Text" fill="#D8D8D8" sketch:type="MSShapeGroup" x="44" y="119" width="387" height="5"></rect>
+            <rect id="Text" fill="#D8D8D8" sketch:type="MSShapeGroup" x="44" y="140" width="407" height="5"></rect>
+            <rect id="Text" fill="#D8D8D8" sketch:type="MSShapeGroup" x="45" y="281.242686" width="393" height="5"></rect>
+            <rect id="Text" fill="#D8D8D8" sketch:type="MSShapeGroup" x="45" y="302.242686" width="379" height="5"></rect>
+            <rect id="Text" fill="#D8D8D8" sketch:type="MSShapeGroup" x="45" y="323.242686" width="387" height="5"></rect>
+            <rect id="Text" fill="#D8D8D8" sketch:type="MSShapeGroup" x="45" y="344.242686" width="407" height="5"></rect>
+            <rect id="Image" stroke="#D8D8D8" fill="#F8F8F8" sketch:type="MSShapeGroup" x="45" y="160.242686" width="141" height="105"></rect>
+            <rect id="Text" fill="#D8D8D8" sketch:type="MSShapeGroup" x="206" y="161" width="225" height="4.75731383"></rect>
+            <rect id="Text" fill="#D8D8D8" sketch:type="MSShapeGroup" x="206" y="181" width="223" height="4.75731383"></rect>
+            <rect id="Text" fill="#D8D8D8" sketch:type="MSShapeGroup" x="206" y="201" width="236" height="4.75731383"></rect>
+            <rect id="Text" fill="#D8D8D8" sketch:type="MSShapeGroup" x="206" y="221" width="232" height="4.75731383"></rect>
+            <rect id="Text" fill="#D8D8D8" sketch:type="MSShapeGroup" x="206" y="241" width="240" height="4.75731383"></rect>
+            <rect id="Text" fill="#D8D8D8" sketch:type="MSShapeGroup" x="206" y="261" width="226" height="4.75731383"></rect>
+        </g>
+    </g>
+</svg>

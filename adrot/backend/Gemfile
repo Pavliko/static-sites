@@ -8,7 +8,6 @@ gem 'sinatra-contrib'
 gem 'nokogiri'
 gem 'oj'
 gem 'rest-client'
-gem 'yandex-api'
 
 gem 'pry'
 gem 'binding_of_caller'

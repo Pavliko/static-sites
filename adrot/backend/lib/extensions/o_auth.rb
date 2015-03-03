@@ -3,7 +3,7 @@ module Extensions
     module Helpers
       def oauth_config
         {
-          'yandex' => Yandex::API::Direct.configuration
+          'yandex' => yandex_config
         }
       end
     end
@@ -21,6 +21,7 @@ module Extensions
         get '/callback' do
           halt 404 unless params[:engine]
           config = oauth_config[params[:engine]]
+
           begin
             res = RestClient.post(config['token_url'],
               grant_type: :authorization_code,
@@ -32,7 +33,9 @@ module Extensions
             url = URI.escape(config['auth_url'] % config['client_id'], Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
             redirect to("http://#{request.host}/oauth/error?url=#{url}")
           end
+
           json = Oj.load(res.body)
+          
           response.set_cookie "#{params[:engine]}_token", value: json['access_token'], path: ?/
           simple_page('<script>window.close();</script>')
         end

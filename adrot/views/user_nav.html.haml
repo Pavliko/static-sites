@@ -3,6 +3,6 @@
     %yandex-direct
   %li
     %p.navbar-text
-      Вы авторизованы как {{ authorization.user }}.
+      Вы авторизованы как {{ authorization.user.name }}.
   %li
     %a{"ng-click": "authorization.log_out()"} Выход
