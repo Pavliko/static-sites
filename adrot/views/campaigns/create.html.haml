@@ -84,7 +84,12 @@
             %select.form-control{ id: 'campaign-id', 'ng-model': 'campaignId', 'ng-init': 'directAPI.getCampaigns()', 'ng-disabled': 'directAPI.campaigns.length == 0' }
               %option{ value: null } Выберите кампанию
               %option{ 'ng-repeat': 'item in directAPI.campaigns', value: '{{::item.CampaignID}}', 'ng-bind': '::item.Name' }
-            %small.help-block Выберите кампанию в которую будут добавлены новые объявления
+            %small.help-block
+              Выберите кампанию в которую будут добавлены новые объявления.
+              %span{'ng-if': '!directAPI.authorized'}
+                Для этого необходимо авторизоваться в Яндекс.Директ используя меню выше.
+              %span{'ng-if': 'directAPI.authorized && directAPI.campaigns.length == 0'}
+                Для этого необходимо создать хотя бы одну кампанию.
           .form-group.banner__pharses-wrapper
             %input.form-control.banners__pharse-price{id: "banners-pharse-price",
               type: "text",

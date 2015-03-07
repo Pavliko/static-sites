@@ -2,6 +2,7 @@
   a {
     &.yandex-direct-link {
       color: $brand-danger;
+      text-decoration: underline;
 
       &:before {
         @extend .glyphicon;
@@ -13,6 +14,7 @@
 
       &.yandex-direct-link--authorized {
         color: $brand-success;
+        text-decoration: none;
         &:before {
           @extend .glyphicon-ok;
         }

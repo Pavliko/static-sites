@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('app')
-  .service 'DirectAPI', ($http, ipCookie) ->
+  .service 'DirectAPI', ($http, ipCookie, Alerts) ->
     cookieKey: 'yandex_token'
     campaigns: []
     authorized: false
@@ -29,4 +29,4 @@ angular.module('app')
 
     saveBanners: (data)->
       $http.post('/direct/banners', data).success (data) ->
-        console.log data
+        Alerts.addAlert "<b>Объявления успешно созданы</b> #{data.data.join(', ')}", 'success'
