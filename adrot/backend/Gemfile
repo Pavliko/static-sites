@@ -1,7 +1,6 @@
 # A sample Gemfile
 source 'https://rubygems.org'
 
-gem 'rack', '1.5.2'
 gem 'sinatra'
 gem 'sinatra-jsonp'
 gem 'sinatra-contrib'
@@ -18,5 +17,3 @@ gem 'pry-remote-auto', git: 'git@github.com:Pavliko/pry-remote-auto.git'
 
 gem 'shotgun',      :require => false
 gem 'unicorn',      :require => false
-gem 'mina',         :require => false
-gem 'mina-unicorn', :require => false
