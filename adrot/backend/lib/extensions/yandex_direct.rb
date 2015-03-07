@@ -85,7 +85,7 @@ module Extensions
             banners << item
           end
 
-          json(yandex_api_request('CreateOrUpdateBanners', banners))
+          json yandex_api_request('CreateOrUpdateBanners', banners)
         end
       end
     end
