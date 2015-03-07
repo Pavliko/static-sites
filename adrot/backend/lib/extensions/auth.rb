@@ -4,6 +4,14 @@ module Extensions
       'JE7bqwtk7XwxDdpTnL' => {
         name: 'Горлов Павел',
         yandex_logins: ['pavel0788']
+      },
+      'kWfbjBfq9m38yreDep' => {
+        name: 'Валентина Стефаненко',
+        yandex_logins: ['pavel0788']
+      },
+      'HkKPuUKsTf2ss33Ypc' => {
+        name: 'Татьяна Зуйкова',
+        yandex_logins: ['zuykovat']
       }
     }
 
@@ -24,6 +32,7 @@ module Extensions
 
     def self.registered(app)
       app.helpers Auth::Helpers
+
       app.before do
         authorize!
       end
