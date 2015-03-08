@@ -13,14 +13,14 @@
               name: "page-url",
               placeholder: "Адрес страницы",
               "ng-model": "campaign.pageUrl" }
-            %small.help-block Адрес страницы на основании которой будет создана кампания
+            %small.help-block Адрес страницы, на основании которой будет создана кампания
 
           %tabset
             %tab.campaign-selectors{heading: "Селекторы контента"}
               %p.help-block
                 Задав
                 %a{"href": "http://vvz.nw.ru/Lessons/CSS/selectors.htm", "target": "_blank"} CSS селекторы
-                контента вы сможете использовать текст из элементов, на которые эти селекторы указывают,
+                контента, вы сможете использовать текст из элементов, на которые эти селекторы указывают
                 при генерации объявлений.
               .form-group.campaign-selectors__item.animated-division{"ng-repeat": "selector in campaign.selectors"}
                 %input.form-control{id: "selector-{{::$index}}",
@@ -34,7 +34,7 @@
             %tab.advertisements{heading: "Объявления"}
               %p.help-block
                 Задайте шаблоны одного или нескольких объявлений. В этих шаблонах вы можете использовать
-                значения выбранные с помощью селекторов, заданных ранее.
+                значения, выбранные с помощью селекторов, заданных ранее.
               .advertisement.sticky-form{"ng-repeat": "advertisement in campaign.advertisements"}
                 .form-group.advertisement-title-wrapper
                   %input.form-control.advertisement__title{id: "advertisement-title-{{::$index}}",
@@ -85,9 +85,9 @@
               %option{ value: null } Выберите кампанию
               %option{ 'ng-repeat': 'item in directAPI.campaigns', value: '{{::item.CampaignID}}', 'ng-bind': '::item.Name' }
             %small.help-block
-              Выберите кампанию в которую будут добавлены новые объявления.
+              Выберите кампанию, в которую будут добавлены новые объявления.
               %span{'ng-if': '!directAPI.authorized'}
-                Для этого необходимо авторизоваться в Яндекс.Директ используя меню выше.
+                Для этого необходимо авторизоваться в Яндекс.Директ, используя меню выше.
               %span{'ng-if': 'directAPI.authorized && directAPI.campaigns.length == 0'}
                 Для этого необходимо создать хотя бы одну кампанию.
           .form-group.banner__pharses-wrapper

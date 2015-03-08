@@ -7,11 +7,15 @@ module Extensions
       },
       'kWfbjBfq9m38yreDep' => {
         name: 'Валентина Стефаненко',
-        yandex_logins: ['pavel0788']
+        yandex_logins: ['yopsta.ru']
       },
       'HkKPuUKsTf2ss33Ypc' => {
         name: 'Татьяна Зуйкова',
         yandex_logins: ['zuykovat']
+      },
+      'n2HAkv6Pk3AWDsaMib' => {
+        name: 'Яндекс.Директ',
+        yandex_logins: ['direct']
       }
     }
 
