@@ -4,8 +4,8 @@ angular.module('app')
   .service 'Auth', ($http, ipCookie, Alerts, $location) ->
     authorized: null
     auth: (key=false) ->
-      key = if key then "key=#{key}&" else ''
-      $http.jsonp("/auth?#{key}callback=JSON_CALLBACK", ignoreLoadingBar: @authorized == null)
+      key = if key then "key=#{key}" else ''
+      $http.get("/auth?#{key}", ignoreLoadingBar: @authorized == null)
         .success (data) =>
           $location.path '/campaigns/create' unless @authorized
           @authorized = true

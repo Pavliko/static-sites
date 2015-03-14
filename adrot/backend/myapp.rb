@@ -1,17 +1,44 @@
 require 'rubygems'
 require 'bundler'
 Bundler.require
+require 'sinatra/cookies'
+require 'sinatra/namespace'
+require "sinatra/json"
 require 'yaml'
+require 'digest/md5'
 
-require './lib/extensions/parser'
-require './lib/extensions/auth'
-require './lib/extensions/yandex_direct'
-require './lib/extensions/o_auth'
-require './lib/parser'
+$root = File.expand_path(File.dirname(__FILE__))
+$redis = Redis.new(db: 5)
+
+$LOAD_PATH.unshift($root + '/lib')
+require 'extensions/parser'
+require 'extensions/auth'
+require 'extensions/yandex_direct'
+require 'extensions/o_auth'
+require 'parser'
+
+module Oj
+  class << self
+    alias :encode :dump
+    alias :decode :load
+  end
+end
+Oj.default_options = { mode: :compat }
 
 class MyApp < Sinatra::Base
-  helpers Sinatra::Jsonp
-  use Rack::Session::Cookie, expire_after: 31104000, secret: 'adrot_torda'
+  set :json_content_type, 'application/json; charset=utf-8'
+  set :json_encoder, Oj
+  set(:cookie_options) do
+    {
+      expires: Time.now + 31536000,
+      path: ?/
+    }
+  end
+
+
+  helpers Sinatra::JSON
+  helpers Sinatra::Cookies
+  disable :sessions
 
   register Sinatra::Namespace
   register Extensions::Auth

@@ -2,18 +2,22 @@ module Extensions
   module Auth
     AUTHORIZED_KEYS = {
       'JE7bqwtk7XwxDdpTnL' => {
+        id: 0,
         name: 'Горлов Павел',
         yandex_logins: ['pavel0788']
       },
       'kWfbjBfq9m38yreDep' => {
+        id: 1,
         name: 'Валентина Стефаненко',
         yandex_logins: ['yopsta.ru']
       },
       'HkKPuUKsTf2ss33Ypc' => {
+        id: 2,
         name: 'Татьяна Зуйкова',
         yandex_logins: ['zuykovat']
       },
       'n2HAkv6Pk3AWDsaMib' => {
+        id: 3,
         name: 'Яндекс.Директ',
         yandex_logins: ['direct']
       }
@@ -21,16 +25,16 @@ module Extensions
 
     module Helpers
       def get_auth
-        jsonp({success: true, data: session[:authorized], message: "Добро пожаловать #{session[:authorized][:name]}!", type: :success})
+        json({success: true, data: @user[:authorized], message: "Добро пожаловать #{@user[:name]}!", type: :success})
       end
 
       def authorize!
-        session[:authorized] = AUTHORIZED_KEYS[params[:key] || request.cookies['key']]
-        halt 200, jsonp({
+        @user = AUTHORIZED_KEYS[params[:key] || request.cookies['key']]
+        halt 200, json({
           success: false,
           status: 403,
           message: params[:key] ? 'Hеправильный ключ' : 'Необходимо авторизоваться'
-        }) unless session[:authorized]
+        }) unless @user
       end
     end
 
@@ -42,7 +46,7 @@ module Extensions
       end
 
       app.get '/auth' do
-        response.set_cookie('key', value: params[:key]) if params[:key]
+        cookies['key'] = params[:key] if params[:key]
         get_auth
       end
     end

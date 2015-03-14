@@ -3,17 +3,19 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'sinatra-jsonp'
-gem 'sinatra-contrib'
+gem 'sinatra-contrib',        require: false
 gem 'nokogiri'
 gem 'oj'
+gem 'hiredis'
+gem 'redis', require: %w[redis/connection/hiredis redis]
 gem 'rest-client'
 
-gem 'pry'
-gem 'binding_of_caller'
-gem 'pry-stack_explorer'
-gem 'awesome_print'
-gem 'pry-remote'
-gem 'pry-remote-auto', git: 'git@github.com:Pavliko/pry-remote-auto.git'
+gem 'pry',                    require: false
+gem 'binding_of_caller',      require: false
+gem 'pry-stack_explorer',     require: false
+gem 'awesome_print',          require: false
+gem 'pry-remote',             require: false
+gem 'pry-remote-auto',        require: false, git: 'git@github.com:Pavliko/pry-remote-auto.git'
 
-gem 'shotgun',      :require => false
-gem 'unicorn',      :require => false
+gem 'shotgun',                require: false
+gem 'unicorn',                require: false

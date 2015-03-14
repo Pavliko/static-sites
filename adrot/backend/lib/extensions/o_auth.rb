@@ -35,8 +35,8 @@ module Extensions
           end
 
           json = Oj.load(res.body)
-          
-          response.set_cookie "#{params[:engine]}_token", value: json['access_token'], path: ?/
+
+          cookies["#{params[:engine]}_token"] = json['access_token']
           simple_page('<script>window.close();</script>')
         end
 

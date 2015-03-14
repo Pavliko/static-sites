@@ -2,8 +2,11 @@ require 'rubygems'
 
 module Extensions
   module YandexDirect
-    URL = 'https://api-sandbox.direct.yandex.ru/v4/json/'
+    SANDBOX_URL = 'https://api-sandbox.direct.yandex.ru/v4/json/'
+    URL = 'https://api.direct.yandex.ru/v4/json/'
     LOCALE = :ru
+    TTL = 604800
+
     module Helpers
       def token
         request.cookies['yandex_token']
@@ -23,8 +26,25 @@ module Extensions
         Oj.load(resp.body)
       end
 
+      def cached_yandex_api_request method, param={}, ttl = TTL
+        digest = params.empty? ? 'digest' : Digest::MD5.digest(params.values.join(?:))
+        cache_key = "yd:#{token}:#{method}:#{digest}"
+
+
+        if params[:clear_cache] != 'true' && cached = $redis.get(cache_key)
+          Oj.load cached
+        else
+          result = yandex_api_request method, param
+          unless result['error_code']
+            $redis.set cache_key, Oj.dump(result)
+            $redis.expireat cache_key, Time.now.to_i + ttl
+          end
+          result
+        end
+      end
+
       def logins
-        session[:authorized][:yandex_logins]
+        @user[:yandex_logins]
       end
     end
 
@@ -33,11 +53,11 @@ module Extensions
 
       app.namespace '/direct' do
         get '/ping' do
-          json yandex_api_request('PingAPI')
+          json cached_yandex_api_request('PingAPI', {}, 3600)
         end
 
         get '/campaigns' do
-          json yandex_api_request('GetCampaignsList', logins)
+          json cached_yandex_api_request('GetCampaignsList', logins)
         end
 
         get '/banners' do
@@ -45,7 +65,7 @@ module Extensions
           param[:CampaignIDS] = params[:CampaignIDS] if params[:CampaignIDS]
           param[:BannerIDS] = params[:BannerIDS] if params[:BannerIDS]
 
-          json yandex_api_request('GetBanners', param)
+          json cached_yandex_api_request('GetBanners', param)
         end
 
         post '/banners' do
