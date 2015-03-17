@@ -9,7 +9,10 @@ APP_ROOT=%%{current_path}
 PID=%%{shared_path}/tmp/unicorn.pid
 ENVIRONMENT=production
 export BUNDLE_PATH=%%{shared_path}/vendor/bundle
+export GEM_HOME=%%{shared_path}/vendor/bundle
+echo >&2 $GEM_HOME
 CMD="bundle exec unicorn -E $ENVIRONMENT -D -c %%{shared_path}/config/unicorn.rb"
+echo >&2 $CMD
 action="$1"
 set -u
 
