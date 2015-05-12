@@ -8,12 +8,12 @@
       .col-md-8
         %form
           .form-group
-            %input.form-control{ id: "page-url",
+            %textarea.form-control{ id: "page-url",
               type: "text",
               name: "page-url",
-              placeholder: "Адрес страницы",
+              placeholder: "Адреса страниц",
               "ng-model": "campaign.pageUrl" }
-            %small.help-block Адрес страницы, на основании которой будет создана кампания
+            %small.help-block Адреса страниц, на основании которых будут созданы объявления. Каждый адрес сновой строки.
 
           %tabset
             %tab.campaign-selectors{heading: "Селекторы контента"}

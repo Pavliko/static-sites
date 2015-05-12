@@ -4,13 +4,14 @@ require 'rest-client'
 
 
 class Parser
-  attr_reader :url, :selectors, :advertisements
+  attr_reader :urls, :selectors, :advertisements
 
   def initialize campaign
     campaign = campaign['camaign']
-    @url = campaign['pageUrl']
+    @urls = campaign['pageUrl'].split("\n")
     @selectors = campaign['selectors'].map{|selector| selector['selector']}
     @advertisements = campaign['advertisements']
+    @result = []
     @selectors.pop
     @advertisements.pop
   end
@@ -21,6 +22,11 @@ class Parser
   end
 
   def parse
+    urls.each { |url| parse_url url }
+    @result
+  end
+
+  def parse_url url
     html = RestClient.get(url).body
     page = Nokogiri::HTML(html)
 
@@ -32,13 +38,15 @@ class Parser
     end
 
     advertisements.each do |advertisement|
+      banner = {}
       advertisement.each do |key, value|
         begin
-          advertisement[key] = value % data
+          banner[key] = value % data
         rescue KeyError => e
-          advertisement[key] = e.message
+          banner[key] = e.message
         end
       end
+      @result << banner
     end
 
     advertisements
