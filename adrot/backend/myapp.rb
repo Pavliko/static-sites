@@ -31,7 +31,8 @@ class MyApp < Sinatra::Base
   set(:cookie_options) do
     {
       expires: Time.now + 31536000,
-      path: ?/
+      path: ?/,
+      httponly: false
     }
   end
 

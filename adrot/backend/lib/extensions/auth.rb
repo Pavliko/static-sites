@@ -51,7 +51,7 @@ module Extensions
       end
 
       app.get '/auth' do
-        cookies['key'] = params[:key] if params[:key]
+        response.set_cookie('key', app.settings.cookie_options.merge(value: params[:key])) if params[:key]
         get_auth
       end
     end

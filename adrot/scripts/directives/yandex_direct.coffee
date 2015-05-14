@@ -24,6 +24,6 @@ angular.module('app')
           @ping()
           $timeout (=> @checkCokie()), 200 if @checkCount++ < 1500 && !@yandexDirectAuth
 
-      scope.$watch 'directLogin', (newValue) ->
-        ipCookie('directLogin', newValue, expires: 365)
+      scope.$watch 'directLogin', (newValue) -> ipCookie('directLogin', newValue, expires: 365)
+
       scope.ping()
