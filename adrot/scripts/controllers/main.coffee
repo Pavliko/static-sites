@@ -5,6 +5,7 @@ angular.module('app')
     $scope.authorization = Auth
     $scope.alerts = Alerts
     $scope.loading = 0
+    $scope.authKey = 'free'
     Auth.auth()
 
     $scope.$on 'cfpLoadingBar:loading', -> $scope.loading++

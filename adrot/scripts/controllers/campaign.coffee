@@ -7,7 +7,7 @@ angular.module('app')
       utmMedium: 'cpc'
       pharsePrice: 0.1
       campaign:
-        pageUrl: 'http://www.ulmart.ru/goods/604875'
+        pageUrl: "http://www.ulmart.ru/goods/604875\nhttp://www.ulmart.ru/goods/726932"
         selectors: [
           {selector: 'title'}
           {selector: 'h1'}

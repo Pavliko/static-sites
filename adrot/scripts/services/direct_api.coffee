@@ -6,6 +6,7 @@ angular.module('app')
     campaigns: []
     authorized: false
     queue: []
+
     ping: (callback) ->
       return callback(@authorized = false) unless ipCookie(@cookieKey)
       $http.get('/direct/ping').success (data) =>

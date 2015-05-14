@@ -2,14 +2,16 @@
   %h1 Создай рекламную кампанию вместе с <span class="ad" ng-class="{'loading': loading > 0}">AD</span>ROT'ом!
   %iframe.adrot-animation{src: "/public/front_animation.html", width: 560, height: 460, frameborder: 0, scrolling: 'no'}
   %form.form-inline.auth-form
-    .input-group
-      %input.form-control.input-lg{ "type": "password",
-                                    "placeholder": "Введите свой ключ",
-                                    "ng-model": "authKey",
-                                    "autofocus": true,
-                                    "id": "auth-key",
-                                    "label": "Ключ"}
-      .input-group-btn
-        %button.btn.btn-success.btn-lg{"ng-click": "authorization.auth(authKey)"}
-          %i.glyphicon.glyphicon-user
-          Вход
+    %button.btn.btn-success.btn-lg{"ng-click": "authorization.auth(authKey)"}
+      Попробовать
+    -# .input-group
+    -#   %input.form-control.input-lg{ "type": "password",
+    -#                                 "placeholder": "Введите свой ключ",
+    -#                                 "ng-model": "authKey",
+    -#                                 "autofocus": true,
+    -#                                 "id": "auth-key",
+    -#                                 "label": "Ключ"}
+    -#   .input-group-btn
+    -#     %button.btn.btn-success.btn-lg{"ng-click": "authorization.auth(authKey)"}
+    -#       %i.glyphicon.glyphicon-user
+    -#       Вход

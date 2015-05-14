@@ -1,8 +1,8 @@
 %ul.nav.navbar-nav.navbar-right#user-nav{"ng-if": "authorization.authorized"}
   %li
     %yandex-direct
+  -# %li
+  -#   %p.navbar-text
+  -#     Вы авторизованы как {{ authorization.user.name }}.
   %li
-    %p.navbar-text
-      Вы авторизованы как {{ authorization.user.name }}.
-  %li
-    %a{"ng-click": "authorization.log_out()"} Выход
+    %a{"ng-click": "authorization.log_out()"} На главную

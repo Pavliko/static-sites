@@ -46,6 +46,7 @@ class Parser
           banner[key] = e.message
         end
       end
+      banner[:href] = url
       @result << banner
     end
 

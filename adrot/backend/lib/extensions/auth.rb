@@ -20,6 +20,11 @@ module Extensions
         id: 3,
         name: 'Яндекс.Директ',
         yandex_logins: ['direct']
+      },
+      'free' => {
+        id: 4,
+        name: 'Уважаемый Пользоывтель',
+        yandex_logins: ['direct']
       }
     }
 

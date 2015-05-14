@@ -44,7 +44,7 @@ module Extensions
       end
 
       def logins
-        @user[:yandex_logins]
+        [cookies['directLogin']]
       end
     end
 
@@ -83,8 +83,8 @@ module Extensions
               end
             end
 
-            href = data['href']
-            separator = data['href'].include?(??) ? ?& : ??
+            href = banner['href']
+            separator = href.include?(??) ? ?& : ??
             url_params = []
             url_params << "utm_source=#{URI::encode(data['utmSource'])}" if data['utmSource']
             url_params << "utm_medium=#{URI::encode(data['utmMedium'])}" if data['utmMedium']

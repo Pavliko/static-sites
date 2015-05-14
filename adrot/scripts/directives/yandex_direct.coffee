@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('app')
-  .directive 'yandexDirect', (DirectAPI, $timeout) ->
+  .directive 'yandexDirect', (DirectAPI, $timeout, ipCookie) ->
     restrict: 'E'
     templateUrl: 'views/yandex_direct.html'
     replace: true
@@ -10,6 +10,7 @@ angular.module('app')
         yandexDirectAuth: false
         checkCount: 0
         doPing: false
+        directLogin: ipCookie('directLogin')
 
         ping: ->
           return if @doPing || @yandexDirectAuth
@@ -23,4 +24,6 @@ angular.module('app')
           @ping()
           $timeout (=> @checkCokie()), 200 if @checkCount++ < 1500 && !@yandexDirectAuth
 
+      scope.$watch 'directLogin', (newValue) ->
+        ipCookie('directLogin', newValue, expires: 365)
       scope.ping()
