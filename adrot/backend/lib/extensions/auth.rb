@@ -38,7 +38,7 @@ module Extensions
         halt 200, json({
           success: false,
           status: 403,
-          message: params[:key] ? 'Hеправильный ключ' : 'Необходимо авторизоваться'
+          message: params[:key] ? 'Hеправильный ключ' : 'Попробуй, не пожалеешь!'
         }) unless @user
       end
     end
